@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scriptFat.js"></script>
+</head>
+<body>
+  <h1>Oficina - Cadastro<br>Faturamento</h1>
+
+  <form id="contatoForm">
+    <div class="campo">
+      <label for="pecas">Peças / Materiais:</label>
+      <textarea rows="5" id="pecas" name="pecas" placeholder="Digite o que foi usado" required>
+      </textarea>
+    </div>
+
+    <div class="campo">
+      <label for="mO">Mão de obra:</label>
+      <textarea rows="5" id="mO" name="mO" placeholder="Digite os responsáveis" required>
+      </textarea>
+    </div>
+
+    <button id="submitBtn" type="submit" onclick="abrirPagina()">Concluir</button>
+  </form>
+
+  <footer>
+    <h4>Protótipo desenvolvido para Avaliação Semestral - Ulbra</h4>
+  </footer>
+</body>
+</html>

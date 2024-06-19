@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scriptCarro.js"></script>
+</head>
+<body>
+  <h1>Oficina - Cadastro<br><b>Ordem de Serviço</b></h1>
+
+  <form id="contatoForm">
+    <div class="campo">
+      <label for="placa">Placa:</label>
+      <input type="text" id="placa" name="placa" placeholder="XXX-XXXX" required>
+      <span class="erro" id="erroPlaca"></span>
+    </div>
+
+    <div class="campo">
+      <label for="mecanico">Mecanico:</label>
+      <input type="text" id="mecanico" name="mecanico" placeholder="Digite o nome do mecânico" required>
+      <span class="erro" id="erroMecanico"></span>
+    </div>
+
+    <div class="campo">
+      <label for="pecas">Peças:</label>
+      <textarea id="pecas" name="pecas" placeholder="Digite o que foi usado" required></textarea>
+      <span class="erro" id="erroPecas"></span>
+    </div>
+
+    <button id="submitBtn" type="submit" onclick="abrirPagina()">Enviar</button>
+  </form>
+
+  <footer>
+    <h4>Protótipo desenvolvido para Avaliação Semestral - Ulbra</h4>
+  </footer>
+</body>
+</html>
