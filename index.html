@@ -8,10 +8,24 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container">
+      <nav class="main-navbar">
+        <button onclick="changeScreen('screen-cliente')">Cliente</button>
+        <button onclick="changeScreen('screen-os')">O.S Oficina</button>
+        <button onclick="changeScreen('screen-faturamento')">
+          Faturamento
+        </button>
+        <button onclick="changeScreen('screen-pagamento')">Pagamento</button>
+        <button onclick="changeScreen('screen-estoque')">
+          Controle de Estoque
+        </button>
+        <button onclick="changeScreen('screen-orcamentos')">Orçamentos</button>
+        <button onclick="changeScreen('screen-pedidos')">Pedidos</button>
+      </nav>
+
       <div class="screen active" id="screen-cliente">
         <nav class="navbar">
           <h1 class="center">Cliente</h1>
@@ -106,188 +120,129 @@
         </div>
       </div>
 
-      <div class="screen" id="screen-profile">
+      <div class="screen" id="screen-estoque">
         <nav class="navbar">
           <button onclick="changeScreen('screen-cliente')">
             <i class="fas fa-arrow-left"></i>
           </button>
-          <h1>Meu Perfil</h1>
+          <h1>Controle de Estoque</h1>
+          <button></button>
         </nav>
         <div class="content">
-          <h2>Informações do Cliente</h2>
-          <p><strong>Nome Completo:</strong> <span id="profile-nome"></span></p>
-          <p><strong>Contato:</strong> <span id="profile-contato"></span></p>
-          <p><strong>Endereço:</strong> <span id="profile-endereco"></span></p>
+          <h2>Cadastro de Peça</h2>
+          <label>Nome da Peça:</label>
+          <input
+            type="text"
+            id="nome-peca"
+            placeholder="Ex: Junta de Cabeçote"
+          />
+          <label>Quantidade:</label>
+          <input
+            type="number"
+            id="quantidade-peca"
+            placeholder="Ex: 100"
+            min="1"
+          />
+          <button onclick="cadastrarPeca()">Cadastrar Peça</button>
+
+          <h2>Estoque Atual</h2>
+          <ul id="lista-pecas">
+            <li>Junta de Cabeçote - Quantidade: 20</li>
+            <li>Retentores de Válvula - Quantidade: 50</li>
+            <!-- Itens do estoque aqui -->
+          </ul>
+
+          <h2>Alertas de Baixo Estoque</h2>
+          <ul id="alertas-estoque">
+            <li>Junta de Cabeçote - Quantidade: 2 (Repor urgente)</li>
+            <!-- Alertas de estoque baixo aqui -->
+          </ul>
+
+          <h2>Histórico de Movimentação</h2>
+          <ul id="historico-movimentacao">
+            <li>10/06/2024 - Entrada: 100 Retentores de Válvula</li>
+            <li>09/06/2024 - Saída: 30 Juntas de Cabeçote</li>
+            <!-- Histórico de movimentação aqui -->
+          </ul>
         </div>
       </div>
-    </div>
 
-    <script src="scripts.js"></script>
+      <div class="screen" id="screen-orcamentos">
+        <nav class="navbar">
+          <button onclick="changeScreen('screen-cliente')">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <h1>Orçamentos e Pedidos</h1>
+          <button></button>
+        </nav>
+        <div class="content">
+          <h2>Criar Orçamento</h2>
+          <label>Nome do Cliente:</label>
+          <input
+            type="text"
+            id="nome-cliente-orcamento"
+            placeholder="Ex: Antonio Silva"
+          />
+          <label>Serviços e Peças:</label>
+          <div id="orcamento-itens-lista">
+            <div class="item">
+              <select class="item-select">
+                <option value="retentores de valvula">
+                  Retentores de Válvula
+                </option>
+                <option value="plaina">Plaina</option>
+                <option value="assentamento de valvula">
+                  Assentamento de Válvula
+                </option>
+                <option value="valvula de admissao">Válvula de Admissão</option>
+                <option value="valvula de escape">Válvula de Escape</option>
+                <option value="junta de cabecote">Junta de Cabeçote</option>
+                <option value="selo">Selo</option>
+                <option value="solda">Solda</option>
+              </select>
+              <input
+                type="number"
+                class="item-quantidade"
+                placeholder="Quantidade"
+                min="1"
+              />
+              <button class="remove-item" onclick="removerItem(this)">X</button>
+            </div>
+          </div>
+          <button onclick="adicionarItemOrcamento()">Adicionar Item</button>
+          <button onclick="criarOrcamento()">Criar Orçamento</button>
+
+          <h2>Rastreamento de Orçamentos</h2>
+          <ul id="lista-orcamentos">
+            <li>
+              Orçamento 1 - Status: Enviado -
+              <button onclick="aprovarOrcamento(1)">Aprovar</button>
+              <button onclick="recusarOrcamento(1)">Recusar</button>
+            </li>
+            <!-- Lista de orçamentos aqui -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-pedidos">
+        <nav class="navbar">
+          <button onclick="changeScreen('screen-cliente')">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <h1>Controle de Pedidos e Garantias</h1>
+          <button></button>
+        </nav>
+        <div class="content">
+          <h2>Pedidos Registrados</h2>
+          <ul id="lista-pedidos">
+            <li>
+              Pedido 1 - Cliente: Antonio Silva - Serviços: 3 - Garantia: Sim
+            </li>
+            <!-- Lista de pedidos aqui -->
+          </ul>
+        </div>
+      </div>
+
+    <script src="js/scripts.js"></script>
   </body>
 </html>
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #007bff;
-    padding: 10px;
-    color: white;
-  }
-
-  .navbar h1 {
-    margin: 0;
-    font-size: 20px;
-  }
-
-  .navbar button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .screen {
-    display: none;
-    flex: 1;
-    overflow-y: auto;
-    width: 100%;
-  }
-
-  .screen.active {
-    display: block;
-  }
-
-  .content {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  h1 {
-    margin-top: 0;
-    font-size: 24px;
-    text-align: center;
-  }
-
-  label {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-
-  input,
-  select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  h2 {
-    font-size: 20px;
-    margin-top: 20px;
-  }
-
-  p {
-    margin: 10px 0;
-  }
-
-  .item {
-    display: flex;
-    align-items: top;
-    margin-bottom: 10px;
-  }
-
-  .item-select {
-    flex: 2;
-    margin-right: 10px;
-  }
-
-  .item-quantidade {
-    flex: 1;
-    margin-right: 10px;
-  }
-
-  .remove-item {
-    flex: 0.5;
-    height: 38px;
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 0px;
-  }
-
-  .remove-item:hover {
-    background-color: #ff1a1a;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      max-width: 100%;
-      height: 100%;
-      border-radius: 0;
-    }
-  }
-
-  @media (min-width: 769px) {
-    .container {
-      align-self: center;
-      margin: auto;
-      height: auto;
-      max-height: 90vh;
-    }
-  }
-</style>

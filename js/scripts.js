@@ -144,3 +144,117 @@ function exibirFaturamento() {
   document.getElementById("total-faturamento").textContent =
     `R$${total.toFixed(2)}`;
 }
+
+function adicionarItemOrcamento() {
+  const lista = document.getElementById("orcamento-itens-lista");
+  const item = document.createElement("div");
+  item.classList.add("item");
+  item.innerHTML = `
+    <select class="item-select">
+      <option value="retentores de valvula">Retentores de Válvula</option>
+      <option value="plaina">Plaina</option>
+      <option value="assentamento de valvula">Assentamento de Válvula</option>
+      <option value="valvula de admissao">Válvula de Admissão</option>
+      <option value="valvula de escape">Válvula de Escape</option>
+      <option value="junta de cabecote">Junta de Cabeçote</option>
+      <option value="selo">Selo</option>
+      <option value="solda">Solda</option>
+    </select>
+    <input type="number" class="item-quantidade" placeholder="Quantidade" min="1" />
+    <button class="remove-item" onclick="removerItem(this)">X</button>
+  `;
+  lista.appendChild(item);
+}
+
+function removerItem(button) {
+  button.parentElement.remove();
+}
+
+function criarOrcamento() {
+  // Lógica para criar orçamento
+  alert("Orçamento criado com sucesso!");
+}
+
+function aprovarOrcamento(id) {
+  // Lógica para aprovar orçamento e converter em pedido
+  alert("Orçamento " + id + " aprovado e convertido em pedido de trabalho.");
+}
+
+function recusarOrcamento(id) {
+  // Lógica para recusar orçamento
+  alert("Orçamento " + id + " recusado.");
+}
+
+function changeScreen(screenId) {
+  const screens = document.querySelectorAll(".screen");
+  screens.forEach((screen) => {
+    screen.classList.remove("active");
+  });
+  document.getElementById(screenId).classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  changeScreen("screen-cliente"); // Defina a tela inicial
+});
+
+function adicionarItemPedido() {
+  const lista = document.getElementById("pedido-itens-lista");
+  const item = document.createElement("div");
+  item.classList.add("item");
+  item.innerHTML = `
+    <select class="item-select">
+      <option value="retentores de valvula">Retentores de Válvula</option>
+      <option value="plaina">Plaina</option>
+      <option value="assentamento de valvula">Assentamento de Válvula</option>
+      <option value="valvula de admissao">Válvula de Admissão</option>
+      <option value="valvula de escape">Válvula de Escape</option>
+      <option value="junta de cabecote">Junta de Cabeçote</option>
+      <option value="selo">Selo</option>
+      <option value="solda">Solda</option>
+    </select>
+    <input type="number" class="item-quantidade" placeholder="Quantidade" min="1" />
+    <label>Garantia:</label>
+    <input type="checkbox" class="item-garantia" />
+    <button class="remove-item" onclick="removerItem(this)">X</button>
+  `;
+  lista.appendChild(item);
+}
+
+function removerItem(button) {
+  button.parentElement.remove();
+}
+
+function registrarPedido() {
+  const nomeCliente = document.getElementById("nome-cliente-pedido").value;
+  const itens = document.querySelectorAll("#pedido-itens-lista .item");
+  const servicos = [];
+  let garantia = false;
+
+  itens.forEach((item) => {
+    const servico = item.querySelector(".item-select").value;
+    const quantidade = item.querySelector(".item-quantidade").value;
+    const isGarantia = item.querySelector(".item-garantia").checked;
+
+    servicos.push(`${servico} (Quantidade: ${quantidade})`);
+    if (isGarantia) garantia = true;
+  });
+
+  const listaPedidos = document.getElementById("lista-pedidos");
+  const pedido = document.createElement("li");
+  pedido.innerHTML = `Pedido - Cliente: ${nomeCliente} - Serviços: ${servicos.length} - Garantia: ${garantia ? "Sim" : "Não"}`;
+  listaPedidos.appendChild(pedido);
+
+  alert("Pedido registrado com sucesso!");
+}
+
+function changeScreen(screenId) {
+  const screens = document.querySelectorAll(".screen");
+  screens.forEach((screen) => {
+    screen.classList.remove("active");
+  });
+  document.getElementById(screenId).classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  changeScreen("screen-cliente"); // Defina a tela inicial
+});
