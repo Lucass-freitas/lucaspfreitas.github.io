@@ -171,17 +171,14 @@ function removerItem(button) {
 }
 
 function criarOrcamento() {
-  // Lógica para criar orçamento
   alert("Orçamento criado com sucesso!");
 }
 
 function aprovarOrcamento(id) {
-  // Lógica para aprovar orçamento e converter em pedido
   alert("Orçamento " + id + " aprovado e convertido em pedido de trabalho.");
 }
 
 function recusarOrcamento(id) {
-  // Lógica para recusar orçamento
   alert("Orçamento " + id + " recusado.");
 }
 
@@ -194,7 +191,7 @@ function changeScreen(screenId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  changeScreen("screen-cliente"); // Defina a tela inicial
+  changeScreen("screen-cliente");
 });
 
 function adicionarItemPedido() {
@@ -256,5 +253,5 @@ function changeScreen(screenId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  changeScreen("screen-cliente"); // Defina a tela inicial
+  changeScreen("screen-cliente");
 });

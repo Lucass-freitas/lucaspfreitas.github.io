@@ -10,23 +10,23 @@ body {
   overflow: hidden;
 }
 
-#screen-pedidos .content {
+.screen-pedidos .content {
   padding: 20px;
 }
 
-#screen-pedidos h2 {
+.screen-pedidos h2 {
   margin-top: 20px;
   font-size: 20px;
 }
 
-#screen-pedidos label {
+.screen-pedidos label {
   display: block;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-#screen-pedidos input,
-#screen-pedidos select {
+.screen-pedidos input,
+.screen-pedidos select {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
@@ -34,7 +34,7 @@ body {
   border-radius: 4px;
 }
 
-#screen-pedidos button {
+.screen-pedidos button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -45,16 +45,16 @@ body {
   margin-top: 10px;
 }
 
-#screen-pedidos button:hover {
-  background-color: #0056b3;
+.screen-pedidos button:hover {
+. background-color: #0056b3;
 }
 
-#screen-pedidos ul {
+.screen-pedidos ul {
   list-style: none;
   padding: 0;
 }
 
-#screen-pedidos ul li {
+.screen-pedidos ul li {
   background: #f9f9f9;
   margin: 5px 0;
   padding: 10px;
@@ -62,11 +62,11 @@ body {
   border-radius: 4px;
 }
 
-#screen-pedidos ul li .garantia {
+.screen-pedidos ul li .garantia {
   color: #28a745;
 }
 
-#screen-pedidos ul li .sem-garantia {
+.screen-pedidos ul li .sem-garantia {
   color: #dc3545;
 }
 
@@ -282,23 +282,23 @@ p {
   border-radius: 4px;
 }
 
-#screen-orcamentos .content {
+.screen-orcamentos .content {
   padding: 20px;
 }
 
-#screen-orcamentos h2 {
+.screen-orcamentos h2 {
   margin-top: 20px;
   font-size: 20px;
 }
 
-#screen-orcamentos label {
+.screen-orcamentos label {
   display: block;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-#screen-orcamentos input,
-#screen-orcamentos select {
+.screen-orcamentos input,
+.screen-orcamentos select {
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 10px;
@@ -306,7 +306,7 @@ p {
   border-radius: 4px;
 }
 
-#screen-orcamentos button {
+.screen-orcamentos button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -317,16 +317,16 @@ p {
   margin-top: 10px;
 }
 
-#screen-orcamentos button:hover {
+.screen-orcamentos button:hover {
   background-color: #0056b3;
 }
 
-#screen-orcamentos ul {
+.screen-orcamentos ul {
   list-style: none;
   padding: 0;
 }
 
-#screen-orcamentos ul li {
+.screen-orcamentos ul li {
   background: #f9f9f9;
   margin: 5px 0;
   padding: 10px;
@@ -334,7 +334,7 @@ p {
   border-radius: 4px;
 }
 
-#screen-orcamentos ul li button {
+.screen-orcamentos ul li button {
   width: auto;
   padding: 5px 10px;
   margin-left: 10px;
@@ -345,15 +345,15 @@ p {
   cursor: pointer;
 }
 
-#screen-orcamentos ul li button:hover {
+.screen-orcamentos ul li button:hover {
   background-color: #218838;
 }
 
-#screen-orcamentos ul li button:nth-child(3) {
+.screen-orcamentos ul li button:nth-child(3) {
   background-color: #dc3545;
 }
 
-#screen-orcamentos ul li button:nth-child(3):hover {
+.screen-orcamentos ul li button:nth-child(3):hover {
   background-color: #c82333;
 }
 
