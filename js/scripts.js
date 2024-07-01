@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("screen-cliente").classList.add("active");
-  updateProfile();
 });
 
 const precoItens = {
@@ -25,7 +24,6 @@ function cadastrarCliente() {
 
   alert("Cliente cadastrado com sucesso!");
   changeScreen("screen-os");
-  updateProfile();
 }
 
 function confirmarOS() {
@@ -105,7 +103,6 @@ function resetarFormulario() {
             <button class="remove-item" onclick="removerItem(this)">X</button>
         </div>`;
   localStorage.clear();
-  updateProfile();
   document.getElementById("lista-itens").innerHTML = "";
   document.getElementById("total-faturamento").textContent = "";
 }
@@ -118,15 +115,15 @@ function changeScreen(screenId) {
   document.getElementById(screenId).classList.add("active");
 }
 
-function updateProfile() {
-  const nome = localStorage.getItem("nome");
-  const contato = localStorage.getItem("contato");
-  const endereco = localStorage.getItem("endereco");
-
-  document.getElementById("profile-nome").textContent = nome || "N/A";
-  document.getElementById("profile-contato").textContent = contato || "N/A";
-  document.getElementById("profile-endereco").textContent = endereco || "N/A";
-}
+// function updateProfile() {
+//   const nome = localStorage.getItem("nome");
+//   const contato = localStorage.getItem("contato");
+//   const endereco = localStorage.getItem("endereco");
+//
+//   document.getElementById("profile-nome").textContent = nome || "N/A";
+//   document.getElementById("profile-contato").textContent = contato || "N/A";
+//   document.getElementById("profile-endereco").textContent = endereco || "N/A";
+// }
 
 function exibirFaturamento() {
   const listaItens = JSON.parse(localStorage.getItem("itens")) || [];
@@ -180,14 +177,6 @@ function aprovarOrcamento(id) {
 
 function recusarOrcamento(id) {
   alert("Orçamento " + id + " recusado.");
-}
-
-function changeScreen(screenId) {
-  const screens = document.querySelectorAll(".screen");
-  screens.forEach((screen) => {
-    screen.classList.remove("active");
-  });
-  document.getElementById(screenId).classList.add("active");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -255,3 +244,8 @@ function changeScreen(screenId) {
 document.addEventListener("DOMContentLoaded", () => {
   changeScreen("screen-cliente");
 });
+
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}

@@ -12,20 +12,18 @@
   </head>
   <body>
     <div class="container">
-      <nav class="main-navbar">
-        <button onclick="changeScreen('screen-cliente')">Cliente</button>
-        <button onclick="changeScreen('screen-os')">O.S Oficina</button>
-        <button onclick="changeScreen('screen-faturamento')">
-          Faturamento
-        </button>
-        <button onclick="changeScreen('screen-pagamento')">Pagamento</button>
-        <button onclick="changeScreen('screen-estoque')">
-          Controle de Estoque
-        </button>
-        <button onclick="changeScreen('screen-orcamentos')">Orçamentos</button>
-        <button onclick="changeScreen('screen-pedidos')">Pedidos</button>
-      </nav>
-
+     <nav class="main-navbar">
+        <button onclick="toggleMenu()" class="hamburger"><i class="fas fa-bars"></i></button>
+        <div class="menu" id="menu">
+            <button onclick="changeScreen('screen-cliente')">Cliente</button>
+            <button onclick="changeScreen('screen-os')">O.S Oficina</button>
+            <button onclick="changeScreen('screen-faturamento')">Faturamento</button>
+            <button onclick="changeScreen('screen-pagamento')">Pagamento</button>
+            <button onclick="changeScreen('screen-estoque')">Controle de Estoque</button>
+            <button onclick="changeScreen('screen-orcamentos')">Orçamentos</button>
+            <button onclick="changeScreen('screen-pedidos')">Pedidos</button>
+        </div>
+    </nav>
       <div class="screen active" id="screen-cliente">
         <nav class="navbar">
           <h1 class="center">Cliente</h1>
